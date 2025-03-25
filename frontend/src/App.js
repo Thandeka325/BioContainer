@@ -23,3 +23,18 @@ function App() {
 }
 
 export default App;
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import UserDashboard from "./components/UserDashboard";
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/dashboard" element={<UserDashboard />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
