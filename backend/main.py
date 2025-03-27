@@ -9,6 +9,12 @@ from database import SessionLocal
 from models import User
 from auth import auth_router, get_current_user
 from models import Container
+import os
+
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+DATABASE_URL = os.getenv("DATABASE_URL")
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 app = FastAPI()
 app.include_router(auth_router)
