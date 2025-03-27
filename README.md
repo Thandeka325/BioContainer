@@ -1,5 +1,7 @@
 # BioContainer: Smart Container Suggestions for Researchers
 
+![A_futuristic_and_visually_appealing_cover_image_fo](https://github.com/user-attachments/assets/49f3e412-898f-46ab-ab51-e46ccd0830ef)
+
 ## 🧬 Project Overview
 BioContainer simplifies containerization for **bioinformaticians and researchers** by **automatically suggesting and generating Docker/Singularity containers** based on user requirements. It removes the complexity of setting up bioinformatics environments by offering ready-to-use configurations.
 
