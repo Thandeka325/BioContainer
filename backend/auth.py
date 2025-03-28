@@ -11,6 +11,10 @@ from sqlalchemy.orm import Session
 from passlib.context import CryptContext
 from backend.database import SessionLocal
 from backend.models import User
+from fastapi.security import OAuth2PasswordBearer
+
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 # Load environment variables from .env file
 load_dotenv()
@@ -73,3 +77,12 @@ def login(email: str, password: str, db: Session = Depends(get_db)):
     
     token = create_access_token(user.email)
     return {"access_token": token}
+
+
+# Get Current User from Token
+def get_current_user(token: str = Depends(oauth2_scheme)):
+    payload = verify_token(token)
+    email = payload.get("email")
+    if not email:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    return email  # Return email or fetch user from DB if needed
