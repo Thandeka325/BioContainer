@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """
 This script handles User Authentication API with secure JWT tokens.
 """
@@ -11,8 +9,8 @@ import datetime
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session
 from passlib.context import CryptContext
-from database import SessionLocal
-from models import User
+from backend.database import SessionLocal
+from backend.models import User
 
 # Load environment variables from .env file
 load_dotenv()
