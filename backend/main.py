@@ -1,14 +1,12 @@
-#!/usr/bin/env python3
-
 """
 This script integrates with the FastAPI
 """
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
-from database import SessionLocal
-from models import User
-from auth import auth_router, get_current_user
-from models import Container
+from backend.database import SessionLocal
+from backend.models import User
+from backend.auth import auth_router, get_current_user
+from backend.models import Container
 import os
 
 
