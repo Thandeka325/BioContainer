@@ -6,19 +6,38 @@ const UserDashboard = () => {
   const [containers, setContainers] = useState([]);
 
   useEffect(() => {
-    // Fetch user profile
-    axios.get("https://biocontainer-api.onrender.com/api/user-profile", {
-      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
-    })
-    .then((response) => setUser(response.data))
-    .catch((error) => console.error("Error fetching user profile:", error));
+    const fetchUserData = async () => {
+      try {
+        // Fetch user profile
+        const userResponse = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/user-profile`,
+          {
+            headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+          }
+        );
+        setUser(userResponse.data);
+      } catch (error) {
+        console.error("Error fetching user profile:", error);
+      }
+    };
 
-    // Fetch past containers
-    axios.get("https://biocontainer-api.onrender.com/api/user-containers", {
-      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
-    })
-    .then((response) => setContainers(response.data))
-    .catch((error) => console.error("Error fetching containers:", error));
+    const fetchUserContainers = async () => {
+      try {
+        // Fetch past containers
+        const containersResponse = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/user-containers`,
+          {
+            headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+          }
+        );
+        setContainers(containersResponse.data);
+      } catch (error) {
+        console.error("Error fetching containers:", error);
+      }
+    };
+
+    fetchUserData();
+    fetchUserContainers();
   }, []);
 
   return (
@@ -31,20 +50,21 @@ const UserDashboard = () => {
           <p><strong>Email:</strong> {user.email}</p>
         </div>
       ) : (
-        <p>Loading user profile...</p>
+        <p>Loading user data...</p>
       )}
 
-      <h3>Past Containers</h3>
+      <h3>Past Container Generations</h3>
       {containers.length > 0 ? (
         <ul>
           {containers.map((container) => (
             <li key={container.id}>
-              <strong>{container.name}</strong> - {container.software} (Created: {new Date(container.created_at).toLocaleDateString()})
+              <strong>Container ID:</strong> {container.id} - 
+              <strong>Status:</strong> {container.status}
             </li>
           ))}
         </ul>
       ) : (
-        <p>No containers created yet.</p>
+        <p>No past container generations found.</p>
       )}
     </div>
   );
