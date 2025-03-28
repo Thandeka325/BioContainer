@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import UserDashboard from "./components/UserDashboard";
 import logo from "./logo.svg";
 import "./App.css";
@@ -21,11 +21,9 @@ function App() {
       </header>
 
       {/* React Router Setup */}
-      <Router>
-        <Routes>
-          <Route path="/dashboard" element={<UserDashboard />} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/dashboard" element={<UserDashboard />} />
+      </Routes>
     </div>
   );
 }
