@@ -52,7 +52,7 @@ npm start  # Runs the React app
 
 ## 🚀 Deployment
 ### **Frontend (Netlify)**
-1. Deploy via GitHub Actions or manually push to Netlify.
+1. Deploy via GitHub Actions or manually push to Netlify(Still a work in progress.
 2. Set environment variables (`REACT_APP_API_URL`).
 
 ### **Backend (Render or Google Cloud Run)**
@@ -71,3 +71,13 @@ This project is licensed under the **MIT License**.
 ---
 💡 **Contributions are welcome!** Feel free to submit issues or pull requests to improve BioContainer.
 
+[Blog](https://medium.com/@marhwayiza325/biocontainer-smart-container-suggestions-for-researchers-f96551851658) post explaining what inspired the project and the difficulties that I faced.
+
+## __Connect with me:__
+
+- [Email](marhwayiza325@gmail.com)
+- [LinkedIn](www.linkedin.com/in/thandeka-mavundla-01b232188)
+
+## __Disclaimer__
+
+The backend deployment and CI/CD deployment work, frontend deployment is still part of the continuous work that I am busy with.
