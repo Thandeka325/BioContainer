@@ -81,3 +81,7 @@ This project is licensed under the **MIT License**.
 ## __Disclaimer__
 
 The backend deployment and CI/CD deployment work, frontend deployment is still part of the continuous work that I am busy with.
+
+## __Demo of the application (Localhost deployment of the backend)__
+
+https://www.loom.com/share/40ab4074ae8c4f72a9bd32a2fe8c8ffd?sid=f28bfb56-bda0-4d25-943d-6bdb65b7a2d6
